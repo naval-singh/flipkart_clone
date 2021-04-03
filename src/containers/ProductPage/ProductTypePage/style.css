@@ -1,0 +1,32 @@
+.bannerImageContainer{
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    display: block;
+}
+.bannerImageContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.productsContainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.productImageContainer{
+    background: #fff;
+    display: block;
+    width: 430px;
+    height: 230px;
+    overflow: hidden;
+    margin: 0 3px;
+    box-shadow: 0 0 5px -1px #aaa;
+    margin: 20px 5px 0 5px;
+    padding: 10px 0;
+}
+.productImageContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

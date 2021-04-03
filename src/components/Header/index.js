@@ -5,6 +5,7 @@ import { IoIosArrowDown, IoIosCart, IoIosSearch } from 'react-icons/io';
 import { FaSearch } from 'react-icons/fa'
 import { Modal, MaterialInput, MaterialButton, DropdownMenu } from '../MaterialUI';
 import './style.css';
+import { NavLink } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { login } from '../../actions/auth.action';
 
@@ -126,9 +127,9 @@ const Header = (props) => {
             </Modal>
             <div className="subHeader">
                 <div className="logo">
-                    <a href="">
+                    <NavLink to="/">
                         <img src={flipkartLogo} className="logoimage" alt="" />
-                    </a>
+                    </NavLink>
                     <a style={{ marginTop: '-10px' }}>
                         <span className="exploreText">Explore</span>
                         <span className="plusText">Plus</span>

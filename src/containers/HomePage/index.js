@@ -1,6 +1,5 @@
 import React from "react";
-import Header from "../../components/Header";
-import MenuHeader from "../../components/MenuHeader";
+import Layout from "../../components/Layout";
 
 /**
  * @author
@@ -8,12 +7,7 @@ import MenuHeader from "../../components/MenuHeader";
  **/
 
 const HomePage = (props) => {
-    return (
-        <>
-            <Header />
-            <MenuHeader />
-        </>
-    );
+    return <Layout>HomePage</Layout>;
 };
 
 export default HomePage;
