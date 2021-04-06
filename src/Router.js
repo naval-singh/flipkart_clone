@@ -1,6 +1,8 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import CartPage from "./containers/CartPage";
 import HomePage from "./containers/HomePage";
+import ProductDetailsPage from "./containers/ProductDetailsPage";
 import ProductPage from "./containers/ProductPage";
 
 /**
@@ -10,10 +12,12 @@ import ProductPage from "./containers/ProductPage";
 
 const Router = (props) => {
     return (
-        <>
+        <Switch>
             <Route path={"/"} exact component={HomePage} />
-            <Route path={"/:slug"} component={ProductPage} />
-        </>
+            <Route path={"/cart"} exact component={CartPage} />
+            <Route path={"/:slug"} exact component={ProductPage} />
+            <Route path={"/:productSlug/:productId/p"} exact component={ProductDetailsPage} />
+        </Switch>
     );
 };
 

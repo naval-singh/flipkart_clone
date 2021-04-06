@@ -11,6 +11,7 @@ const initialState = {
         under20k: [],
         under30k: [],
     },
+    productDetails: {},
 };
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -31,6 +32,26 @@ export default (state = initialState, action) => {
             };
             break;
         case productConstants.GET_PRODUCT_BY_SLUG_FAILURE:
+            state = {
+                ...state,
+                loading: false,
+                error: action.payload.error,
+            };
+            break;
+        case productConstants.GET_PRODUCT_BY_ID_REQUEST:
+            state = {
+                ...state,
+                loading: true,
+            };
+            break;
+        case productConstants.GET_PRODUCT_BY_ID_SUCCESS:
+            state = {
+                ...state,
+                loading: false,
+                productDetails: action.payload.product,
+            };
+            break;
+        case productConstants.GET_PRODUCT_BY_ID_FAILURE:
             state = {
                 ...state,
                 loading: false,

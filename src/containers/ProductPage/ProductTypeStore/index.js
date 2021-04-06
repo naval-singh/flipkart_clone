@@ -42,8 +42,7 @@ const ProductTypeStore = (props) => {
                         <div style={{ display: "flex" }}>
                             {product.productsByPrice[key].slice(0, 6).map((product) => (
                                 <Link
-                                    to="#"
-                                    style={{ display: "block" }}
+                                    to={`/${product.slug}/${product._id}/p`}
                                     className="productContainer"
                                 >
                                     <div className="productImgContainer">

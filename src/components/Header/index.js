@@ -5,9 +5,10 @@ import { IoIosArrowDown, IoIosCart, IoIosSearch } from 'react-icons/io';
 import { FaSearch } from 'react-icons/fa'
 import { Modal, MaterialInput, MaterialButton, DropdownMenu } from '../MaterialUI';
 import './style.css';
-import { NavLink } from 'react-router-dom';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { login } from '../../actions/auth.action';
+import { NavLink, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { signin, signout } from '../../actions';
+
 
 /**
 * @author
@@ -19,19 +20,27 @@ const Header = (props) => {
     const [loginModal, setLoginModal] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const auth = useSelector(state => state.auth);
-    // const dispatch = useDispatch();
+    const auth = useSelector(state => state.auth);
+    const dispatch = useDispatch();
 
-    // const userLogin = () => {
-    //     dispatch(login({ email, password }))
-    // }
+    const userLogin = () => {
+        dispatch(signin({ email, password }))
+    }
+
+    const userLogout = () => {
+        dispatch(signout())
+    }
+
+    useEffect(()=>{
+        auth.authenticate && setLoginModal(false)
+    },[auth.authenticate])
 
     const renderLoggedInMenu = () => {
         return (
             <DropdownMenu
                 menu={
                     <a className="userName">
-                        {/* {auth.user.firstName} */}
+                        {`Hi ${auth.user.firstName}`}
                         <IoIosArrowDown />
                     </a>
                 }
@@ -45,7 +54,7 @@ const Header = (props) => {
                     { label: 'Coupons', href: '', icon: null },
                     { label: 'Gift Cards', href: '', icon: null },
                     { label: 'Notifications', href: '', icon: null },
-                    { label: 'Logout', href: '', icon: null },
+                    { label: 'Logout', href: '', icon: null, onClick: userLogout },
                 ]}
             />
         )
@@ -110,7 +119,7 @@ const Header = (props) => {
                                 bgColor="#fb641b"
                                 textColor="#ffffff"
                                 style={{ margin: '30px 0 15px 0' }}
-                                // onClick={userLogin}
+                                onClick={userLogin}
                             />
                             <p style={{ fontSize: 12, color: '#a7a7a7' }}>
                                 OR
@@ -153,8 +162,8 @@ const Header = (props) => {
                 </div>
                 <div className="rightMenu">
                     {
-                        // auth.authenticate ?
-                        //     renderLoggedInMenu() :
+                        auth.authenticate ?
+                            renderLoggedInMenu() :
                             renderNonLoggedInMenu()
                     }
                     <DropdownMenu
@@ -173,10 +182,13 @@ const Header = (props) => {
                         ]}
                     />
                     <div>
-                        <a className="cart">
+                        <Link
+                            to={'/cart'}
+                            className="cart"
+                        >
                             <IoIosCart />
                             <span style={{ margin: '0 10px' }}>Cart</span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

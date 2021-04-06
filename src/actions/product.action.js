@@ -20,3 +20,24 @@ export const getProductBySlug = (slug) => {
         }
     };
 };
+
+export const getProductById = (payload) => {
+    return async (dispatch) => {
+        const {productId} = payload
+        dispatch({ type: productConstants.GET_PRODUCT_BY_ID_REQUEST });
+        const res = await axios.post(`/product/display/${productId}`);
+        if (res.data.status) {
+            const { product } = res.data;
+            dispatch({
+                type: productConstants.GET_PRODUCT_BY_ID_SUCCESS,
+                payload: { product },
+            });
+        } else {
+            const { error } = res.data;
+            dispatch({
+                type: productConstants.GET_PRODUCT_BY_ID_FAILURE,
+                payload: { error },
+            });
+        }
+    };
+};

@@ -1,0 +1,136 @@
+.cartItemsContainer{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 50px;
+}
+.sectionLeft{
+    width: 850px;
+    /* height: 400px; */
+    background: #fff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 5px 1px #ddd;
+}
+.sectionLeft h3{
+    margin: 0;
+    padding: 0 30px;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    color: #666;
+    border-bottom: 1px solid #eee;
+}
+.sectionLeft .showProductMainContainer{
+    border-bottom: 1px solid #eee;
+}
+.sectionLeft .showProductMainContainer .showProductContainer{
+    display: flex;
+    margin: 10px;
+}
+.sectionLeft .showProductMainContainer .showProductContainer .cartImgContainer{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+.sectionLeft .showProductMainContainer .showProductContainer .cartImgContainer img{
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    padding: 20px;
+    object-fit: contain;
+}
+.sectionLeft .showProductMainContainer .showProductContainer h4{
+    font-weight: 400;
+}
+.sectionLeft .showProductMainContainer .showProductContainer p{
+    font-weight: 500;
+    font-size: 18px;
+}
+.sectionLeft .showProductMainContainer .showProductContainer p span{
+    font-size: 14px;
+    text-decoration: line-through;
+    font-weight: 400;
+    color: #888;
+    padding: 0 15px;
+}
+.sectionLeft .itemActions{
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px 25px;
+}
+.sectionLeft .itemActions > button{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0 15px;
+}
+.sectionLeft .itemActions button:hover{
+    color: #2874f0;
+}
+.sectionLeft .itemActions .setQuantity{
+    display: flex;
+    align-items: center;
+}
+.sectionLeft .itemActions .setQuantity > button{
+    background: #fff;
+    outline: none;
+    color: #777;
+    padding: 6px 6px 3px 6px;
+    border: 1px solid #777;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.sectionLeft .itemActions .setQuantity > input{
+    width: 50px;
+    height: 22px;
+    margin: 0 5px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    color: #777;
+    border: 1px solid #777;
+}
+.sectionRight{
+    width: 370px;
+    height: 310px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 5px 1px #ddd;
+}
+.sectionRight h3{
+    margin: 0;
+    padding: 0 30px;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    color: #888;
+    border-bottom: 1px solid #eee;
+}
+.sectionRight .rightContent{
+    margin : 20px 20px 0 20px;
+}
+.sectionRight .rightContent .rightContentItems{
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.sectionRight .rightContent .totalAmount{
+    padding: 18px 0;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px dashed #eaeaea;
+    border-bottom: 1px dashed #eaeaea;
+}
+.sectionRight .rightContent h4{
+    font-weight: 600;
+    font-size: 15px;
+    color: #06c510;
+    letter-spacing: .5px;
+}

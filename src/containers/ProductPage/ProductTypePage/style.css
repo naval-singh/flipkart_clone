@@ -16,17 +16,30 @@
 }
 .productImageContainer{
     background: #fff;
-    display: block;
+    /* display: block; */
     width: 430px;
     height: 230px;
     overflow: hidden;
     margin: 0 3px;
     box-shadow: 0 0 5px -1px #aaa;
     margin: 20px 5px 0 5px;
-    padding: 10px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.shadow{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: none;
+    opacity: .5;
+    transition: all .3s linear;
+}
+.productImageContainer:hover .shadow{
+    background: #000;
 }
 .productImageContainer img{
     width: 100%;
-    height: 100%;
+    height: 90%;
     object-fit: contain;
 }

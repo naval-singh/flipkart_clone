@@ -1,0 +1,27 @@
+.noItemContainer {
+    width: 1200px;
+    height: 400px;
+    background: #fff;
+    margin: 20px auto;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 5px 1px #ddd;
+}
+.noItemContainer h4 {
+    margin: 0;
+    padding: 20px 0 0 25px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.imageBlock {
+    text-align: center;
+    margin-top: 30px;
+}
+.imageBlock h4 {
+    font-size: 18px;
+    font-weight: 400;
+    padding: 5px;
+}
+.imageBlock p {
+    font-size: 12px;
+    letter-spacing: 1px;
+}

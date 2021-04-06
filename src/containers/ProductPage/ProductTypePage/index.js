@@ -40,23 +40,16 @@ const ProductTypePage = (props) => {
             <Slider {...settings}>
                 {page.page.banners &&
                     page.page.banners.map((item, index) => (
-                        <a
-                          key={index}
-                          href={item.navigateTo}
-                          className='bannerImageContainer'
-                        >
+                        <a key={index} href={item.navigateTo} className="bannerImageContainer">
                             <img src={generatePublicURL(item.img)} alt="" />
                         </a>
                     ))}
             </Slider>
-            <div className='productsContainer'>
+            <div className="productsContainer">
                 {page.page.products &&
                     page.page.products.map((item, index) => (
-                        <a
-                          key={index}
-                          href={item.navigateTo}
-                          className='productImageContainer'
-                        >
+                        <a key={index} href={item.navigateTo} className="productImageContainer">
+                            <div className="shadow"></div>
                             <img src={generatePublicURL(item.img)} alt="" />
                         </a>
                     ))}
