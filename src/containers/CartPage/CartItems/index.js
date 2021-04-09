@@ -10,6 +10,7 @@ import "./style.css";
 
 const CartItems = (props) => {
     const [qty, setQty] = useState(props.item.qty);
+    console.log({items: props.item})
 
     const { _id, name, img, price, listPrice } = props.item;
 

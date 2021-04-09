@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../actions";
+import { addToCart, getCartItems } from "../../actions";
 import Layout from "../../components/Layout";
 import CartItem from "./CartItems";
 import NoItemView from "./NoItemView";
@@ -11,7 +11,6 @@ import NoItemView from "./NoItemView";
  **/
 
 const CartPage = (props) => {
-
     const [totalPrice, setTotalPrice] = useState();
     const [totalDiscount, setTotalDiscount] = useState();
     const [deliveryCharge, setDeliveryCharge] = useState();
@@ -20,36 +19,41 @@ const CartPage = (props) => {
 
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart);
+    const auth = useSelector((state) => state.auth);
     const length = Object.keys(cart.cartItems).length;
     const cartItems = Object.values(cart.cartItems);
 
-    // const finalCalculation = ()=>{
-    //     let totalListPrice=0;
-    //     let totalPrice=0;
-    //     cartItems.map(item => {
-    //         totalListPrice = parseInt(totalListPrice+(item.listPrice * item.qty))
-    //         totalPrice = parseInt(totalPrice + (item.price * item.qty))
-    //     })
-    //     setTotalPrice(totalListPrice)
-    //     setTotalDiscount(totalListPrice-totalPrice)
-    //     setTotalAmount(totalPrice)
-    // }
+    const finalCalculation = ()=>{
+        let totalListPrice=0;
+        let totalPrice=0;
+        cartItems.map(item => {
+            totalListPrice = parseInt(totalListPrice+(item.listPrice * item.qty))
+            totalPrice = parseInt(totalPrice + (item.price * item.qty))
+        })
+        setTotalPrice(totalListPrice)
+        setTotalDiscount(totalListPrice-totalPrice)
+        setTotalAmount(totalPrice)
+    }
 
-    // useEffect(()=>{
-    //     finalCalculation()
-    // },[cart.cartItems])
+    useEffect(()=>{
+        finalCalculation()
+    },[cart.cartItems])
 
-    // useEffect(()=>{
-    //     finalCalculation()
-    // },[checkQty])
+    useEffect(()=>{
+        finalCalculation()
+    },[checkQty])
+
+    useEffect(()=>{
+        auth.authenticate && dispatch(getCartItems())
+    },[auth.authenticate])
 
     const increaseQty = (_id, qty) => {
-        // setCheckQty(qty)
+        setCheckQty(qty)
         const { name, price, listPrice, img } = cart.cartItems[_id];
         dispatch(addToCart({ _id, name, price, listPrice, img }, 1));
     };
     const decreaseQty = (_id, qty) => {
-        // setCheckQty(qty)
+        setCheckQty(qty)
         const { name, price, listPrice, img } = cart.cartItems[_id];
         dispatch(addToCart({ _id, name, price, listPrice, img }, -1));
     };
@@ -66,7 +70,7 @@ const CartPage = (props) => {
 
                 <section className="sectionRight">
                     <h3>Price Details</h3>
-                    {/* <div className="rightContent">
+                    <div className="rightContent">
                         <div className="rightContentItems">
                             <span>Price ({length} items)</span>
                             <span>&#8377;{totalPrice}</span>
@@ -84,7 +88,7 @@ const CartPage = (props) => {
                             <span>&#8377;{totalAmount}</span>
                         </div>
                         <h4>You will save &#8377;{totalDiscount} on this order</h4>
-                    </div> */}
+                    </div>
                 </section>
             </div>
         );

@@ -3,6 +3,7 @@ import { cartConstants } from "../actions/constants";
 const initialState = {
     cartItems: {},
     loading: false,
+    error: null,
 };
 
 export default (state = initialState, action) => {
@@ -24,6 +25,12 @@ export default (state = initialState, action) => {
             state = {
                 ...state,
                 loading: false,
+                error: action.payload.error,
+            };
+            break;
+        case cartConstants.RESET_CART:
+            state = {
+                ...initialState,
             };
             break;
     }

@@ -17,6 +17,7 @@ import { generatePublicURL } from "../../urlConfig";
 const ProductDetailsPage = (props) => {
     const dispatch = useDispatch();
     const product = useSelector((state) => state.product);
+    
 
     const handleAddToCart = () => {
         const { _id, name, price, listPrice, productPictures } = product.productDetails;

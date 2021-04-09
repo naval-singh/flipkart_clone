@@ -8,12 +8,13 @@ function App() {
     const dispatch = useDispatch();
     const auth = useSelector((state) => state.auth);
 
-    useEffect(() => {
-        dispatch(updateCart());
-    }, []);
+    // useEffect(() => {
+    //     dispatch(updateCart());
+    // }, []);
 
     useEffect(() => {
         !auth.authenticate && dispatch(isUserLoggedIn());
+        dispatch(updateCart());
     }, [auth.authenticate]);
 
     return <Router />;
